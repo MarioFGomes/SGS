@@ -1,0 +1,83 @@
+﻿@model CodeReview.AppMvc.ViewModels.FornecedorViewModel
+@using CodeReview.AppMvc.Extensions
+
+<div style="padding-top:50px">
+        <div>
+            <hr />
+            <h3>Endereço</h3>
+        </div>
+
+    @if (Model!=null)
+    {
+        <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Endereco.Cidade)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Endereco.Municipio)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Endereco.Bairro)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Endereco.Rua)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Endereco.Morada)
+                        </th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(mode => Model.Endereco.Cidade)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(mode => Model.Endereco.Municipio)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(mode => Model.Endereco.Bairro)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(mode => Model.Endereco.Rua)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(mode => Model.Endereco.Morada)
+                        </td>
+
+                        <td>
+                            @if (this.ExibirNaURL(Model.Id)) { 
+                            <a class="btn btn-info" href="@Url.Action("AtualizarEndereco","Fornecedores", new {id=Model.Id})" data-modal=""><samp class="glyphicon glyphicon-pencil"></samp></a>
+                            }
+                        </td>
+                    </tr>
+
+                </tbody>
+
+        </table>
+    }
+
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        SetModal();
+    })
+
+</script>
+
+
+

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<CodeReview.AppMvc.ViewModels.ProdutoViewModel>
+@using CodeReview.AppMvc.Extensions
+@{
+    ViewBag.Title = "Lista de Produtos";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@{
+    if (this.PermitirExibicao("Produto", "Adicionar"))
+    {
+        <p>
+            <a class="btn btn-info" href="@Url.Action("Create","Produto")">
+                Novo Produto
+            </a>
+        </p>
+    }
+}
+
+
+@Html.Partial("_ListaProdutos")
